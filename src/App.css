@@ -101,3 +101,85 @@
 .qty-label {
   color: #6c757d;
 }
+
+/* ==== NAVBAR ==== */
+.topbar {
+  background: #12d5f2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-radius: 4px 4px 0 0;
+}
+.topbar a { 
+  color: #fff !important; 
+}
+.site-title { 
+  margin: 0; 
+  font-weight: 700; 
+}
+.cart-info { 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+}
+.items-text { 
+  color: #fff; 
+}
+
+/* ==== СПИСОК ТОВАРОВ ==== */
+.box { 
+  background:#fff; 
+  border:1px solid #e3e6e8; 
+  border-top:none; 
+}
+.product-row { 
+  padding:22px 20px; 
+  border-top:1px solid #e9ecef; 
+}
+.product-row:first-child { 
+  border-top:none; 
+}
+
+/* название */
+.product-title { 
+  margin:0 0 10px 0; 
+  font-weight:600; 
+}
+
+/* картинка */
+.product-img { 
+  max-height:110px; 
+  width:100%; 
+  object-fit:contain; 
+}
+
+/* блок количества */
+.qty-col { 
+  display:flex; 
+  align-items:center; 
+  gap:12px; 
+}
+.qty-controls { 
+  display:flex; 
+  align-items:center; 
+  gap:10px; 
+}
+.qty-btn { 
+  width:40px; 
+  height:40px;
+}
+.qty-field { 
+  display:flex; 
+  align-items:center; 
+  gap:8px; 
+}
+.qty-label { 
+  color:#6c757d; 
+}
+.qty-input { 
+  width:46px; 
+  height:40px; 
+  text-align:center; 
+  padding:0; 
+}
