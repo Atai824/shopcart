@@ -35,26 +35,34 @@ function ProductRow({ product, onQtyChange, onOpen, onAdd, onSub }) {
 
         <Col md="7" sm="6" xs="8" className="qty-col">
           <div className="qty-controls">
-            <button type="button" className="btn btn-secondary qty-btn" onClick={() => onAdd(product.id)}>
+            <button
+                type="button"
+                className="btn qty-btn"
+                onClick={() => onAdd(product.id)}
+                aria-label="add"
+            >
                 <FontAwesomeIcon icon={faPlus} />
             </button>
-            <button type="button" className="btn btn-secondary qty-btn" onClick={() => onSub(product.id)}>
+
+            <button
+                type="button"
+                className="btn qty-btn"
+                onClick={() => onSub(product.id)}
+                aria-label="subtract"
+            >
                 <FontAwesomeIcon icon={faMinus} />
             </button>
 
             <div className="qty-field">
-                <span className="qty-label">Quantity</span>
-                <Form>
-                <input
-                    type="number"
-                    min="0"
-                    className="form-control qty-input"
-                    value={product.qty}
-                    onChange={handleChange}
-                />
-                </Form>
+            <span className="qty-label">Quantity</span>
+          
+            <div className="qty-box" aria-label={`Quantity ${product.qty}`}>
+                {product.qty}
             </div>
             </div>
+
+            </div>
+
 
         </Col>
       </Row>

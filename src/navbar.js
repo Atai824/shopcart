@@ -10,7 +10,7 @@ export default function Navbar({ siteName, totalQty, Home, Cart }) {
     <div className="topbar">
       <h3 className="site-title">
         <Link to="/" className="text-decoration-none">
-          {siteName}
+          Shop 2 <span className="react-badge">R</span>eact
         </Link>
       </h3>
 

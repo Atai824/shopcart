@@ -183,3 +183,188 @@
   text-align:center; 
   padding:0; 
 }
+
+/* ====== ФИНАЛЬНАЯ ПОЛИРОВКА ПОД МАКЕТ ====== */
+
+/* Ряды товаров: тоньше линии, чуть плотнее отступы */
+.product-row { 
+  padding: 18px 20px;
+  border-top: 1px solid #edf0f2;
+}
+
+/* Колонка количества — элементы вплотную как на скрине */
+.qty-col { 
+  display: flex; 
+  align-items: center; 
+  gap: 12px;
+}
+
+/* Группа управления количеством */
+.qty-controls { 
+  display: flex; 
+  align-items: center; 
+  gap: 12px;            /* расстояние между +, - и блоком Quantity */
+}
+
+/* Кнопки + / -: квадратные, серые, с белой иконкой */
+.qty-btn {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: #6c757d;         /* серый как на макете */
+  color: #fff;                 /* белая иконка */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.qty-btn:hover { 
+  background: #5f6770; 
+}
+
+/* Подпись + инпут в одном блоке */
+.qty-field { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 10px; 
+}
+
+/* Подпись Quantity */
+.qty-label { 
+  color: #6c757d; 
+  font-size: 14px;
+}
+
+/* Маленький input c лёгким скруглением */
+.qty-input {
+  width: 44px;
+  height: 36px;
+  text-align: center;
+  padding: 0;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Чуть меньше картинка, как на примере */
+.product-img { 
+  max-height: 100px;
+  width: 100%;
+  object-fit: contain; 
+}
+
+/* Шапка: чуть более плотная высота */
+.topbar { 
+  padding: 14px 20px; 
+}
+
+/* Тонкая рамка у списка */
+.box { 
+  border-color: #e8edf0; 
+}
+
+/* ===== NAVBAR: без скруглений ===== */
+.topbar {
+  background: #12d5f2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  border-radius: 0;                /* без сглаживаний */
+}
+.topbar a { color: #fff !important; }
+.site-title { margin: 0; font-weight: 700; }
+.cart-info { display: flex; align-items: center; gap: 8px; }
+.items-text { color: #fff; }
+
+/* Бейдж "R" как на скрине */
+.react-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:#fff;               /* белый круг на бирюзовой шапке */
+  color:#12d5f2;                 /* буква R бирюзовая */
+  font-weight:700;
+  margin:0 6px 0 4px;
+  line-height:1;
+}
+
+/* ===== Список товаров и линии ===== */
+.box { background:#fff; 
+  border:1px solid #e8edf0; 
+  border-top:none; 
+}
+.product-row { 
+  padding: 18px 20px; 
+  border-top:1px solid #edf0f2; 
+}
+.product-row:first-child { 
+  border-top:none; 
+}
+.product-title { 
+  margin:0 0 10px 0; 
+  font-weight:600; 
+}
+
+/* Картинка товара */
+.product-img { 
+  max-height:100px; 
+  width:100%; 
+  object-fit:contain; }
+
+/* Колонка количества */
+.qty-col { 
+  display:flex; 
+  align-items:center; 
+  gap:12px; }
+
+.qty-controls { 
+  display:flex; 
+  align-items:center; 
+  gap:12px; }
+
+/* Кнопки +/- — квадратные серые */
+.qty-btn{
+  width:40px; 
+  height:40px; 
+  padding:0;
+  border:none; 
+  border-radius:6px;
+  background:#6c757d; 
+  color:#fff;
+  display:inline-flex; 
+  align-items:center; 
+  justify-content:center;
+}
+.qty-btn:hover{ 
+  background:#5f6770; 
+}
+
+/* Подпись над боксом и сам бокс */
+.qty-field{ 
+  display:inline-flex; 
+  flex-direction:column; 
+  align-items:flex-start; 
+  gap:6px; }
+
+.qty-label{ 
+  color:#6c757d; 
+  font-size:14px; 
+}
+
+/* Квадратный "input"-бокс, но это div: */
+.qty-box{
+  width:40px; height:40px;
+  border:1px solid #d9dee2;
+  border-radius:0;                 /* без скруглений */
+  background:#fff;
+  display:flex; 
+  align-items:center; 
+  justify-content:center;
+  font-size:14px; 
+  font-weight:500;
+  user-select:none;                /* нельзя выделять текст */
+}
