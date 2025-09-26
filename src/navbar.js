@@ -1,12 +1,12 @@
+// src/navbar.js
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { Link, Routes, Route } from "react-router-dom"
+import { Link } from "react-router-dom";
 import "./App.css";
 
-export default function Navbar({ siteName, totalQty, Home, Cart }) {
+export default function Navbar({ siteName, totalQty }) {
   return (
-  <>
     <div className="topbar">
       <h3 className="site-title">
         <Link to="/" className="text-decoration-none">
@@ -21,11 +21,5 @@ export default function Navbar({ siteName, totalQty, Home, Cart }) {
         </Link>
       </div>
     </div>
-
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/cart" element={<Cart />} />
-    </Routes>
-  </>
-);
+  );
 }

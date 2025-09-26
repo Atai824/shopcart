@@ -1,11 +1,14 @@
 import React from "react";
-import { Row, Col } from "reactstrap";
+import { Row, Col, Button } from "reactstrap";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart({ products }) {
+    const navigate = useNavigate();
     const items = products.filter(p => p.qty > 0);
     if (items.length === 0) return <p className="p-3">Your cart is empty.</p>;
 
     return (
+        <>
         <div className="box">
             {items.map(p => (
                 <div className="product-row" key={p.id}>
@@ -21,5 +24,11 @@ export default function Cart({ products }) {
                 </div>
             ))}
         </div>
+            <div className="cart actions">
+                <Button color="primary" onClick={() => navigate("/signin")}>
+                    Check Out
+                </Button>
+            </div>
+            </>
     );
 }

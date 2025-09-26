@@ -1,25 +1,24 @@
 // src/displayProducts.js
 import React, { useState } from "react";
-import { Row, Col, Form, Button } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import Modal from "react-bootstrap/Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import "./App.css";
 
 function ProductRow({ product, onQtyChange, onOpen, onAdd, onSub }) {
-  const handleChange = (e) => {
-    const val = Number(e.target.value);
-    onQtyChange(product.id, Number.isNaN(val) || val < 0 ? 0 : val);
-  };
-
   return (
     <div className="product-row">
-      {/* Name */}
-      <Row>
-        <Col>
-          <h5 className="product-title">{product.name}</h5>
-        </Col>
-      </Row>
+     
+      {/* Название + цена одной строкой слева */}
+        <Row>
+          <Col xs="12">
+            <h5 className="product-title mb-2">
+              {product.name} <small className="product-price">${product.price}</small>
+            </h5>
+          </Col>
+        </Row>
+
 
       {/* Image and Qty */}
       <Row className="align-items-center">
@@ -29,41 +28,42 @@ function ProductRow({ product, onQtyChange, onOpen, onAdd, onSub }) {
             alt={product.name}
             className="product-img"
             style={{ cursor: "pointer" }}
-            onClick={() => onOpen(product)} 
+            onClick={() => onOpen(product)}
           />
         </Col>
 
         <Col md="7" sm="6" xs="8" className="qty-col">
           <div className="qty-controls">
             <button
-                type="button"
-                className="btn qty-btn"
-                onClick={() => onAdd(product.id)}
-                aria-label="add"
+              type="button"
+              className="btn qty-btn"
+              onClick={() => onAdd(product.id)}
+              aria-label="add"
             >
+              <span className="btn-glyph">
                 <FontAwesomeIcon icon={faPlus} />
+              </span>
             </button>
 
             <button
-                type="button"
-                className="btn qty-btn"
-                onClick={() => onSub(product.id)}
-                aria-label="subtract"
+              type="button"
+              className="btn qty-btn"
+              onClick={() => onSub(product.id)}
+              aria-label="subtract"
             >
+              <span className="btn-glyph">
                 <FontAwesomeIcon icon={faMinus} />
+              </span>
             </button>
 
+
             <div className="qty-field">
-            <span className="qty-label">Quantity</span>
-          
-            <div className="qty-box" aria-label={`Quantity ${product.qty}`}>
+              <span className="qty-label">Quantity</span>
+              <div className="qty-box" aria-label={`Quantity ${product.qty}`}>
                 {product.qty}
+              </div>
             </div>
-            </div>
-
-            </div>
-
-
+          </div>
         </Col>
       </Row>
     </div>
@@ -71,9 +71,13 @@ function ProductRow({ product, onQtyChange, onOpen, onAdd, onSub }) {
 }
 
 export default function DisplayProducts({ products, onQtyChange, onAdd, onSub }) {
-  // состояние модалки и активного товара
+  // modal
   const [show, setShow] = useState(false);
   const [showImge, setShowImge] = useState({});
+
+  // sort state
+  // "normal" — как в слайде: дефолтная раскладка по id по возрастанию
+  const [sortBy, setSortBy] = useState("normal");
 
   const handleClose = () => setShow(false);
   const handleShow = (product) => {
@@ -81,10 +85,39 @@ export default function DisplayProducts({ products, onQtyChange, onAdd, onSub })
     setShowImge(product);
   };
 
+  // вычисляем отсортированный список для отображения
+  const sortedProducts = [...products].sort((a, b) => {
+    switch (sortBy) {
+      case "lowest":
+        return a.price - b.price;
+      case "highest":
+        return b.price - a.price;
+      default: // "normal"
+        return a.id - b.id;
+    }
+  });
+
+
   return (
     <>
+      {/* Панель сортировки как на макете */}
+      <div className="sortbar d-flex justify-content-center align-items-center mb-3">
+        <span className="me-2 small text-muted">Sort Price By:</span>
+        <select
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value)}
+          className="form-select form-select-sm sort-select"
+          aria-label="Sort Price By"
+          style={{ width: 140 }}
+        >
+          <option value="normal">Normal</option>
+          <option value="lowest">Lowest</option>
+          <option value="highest">Highest</option>
+        </select>
+      </div>
+
       <div className="box">
-        {products.map((p) => (
+        {sortedProducts.map((p) => (
           <ProductRow
             key={p.id}
             product={p}
@@ -96,24 +129,18 @@ export default function DisplayProducts({ products, onQtyChange, onAdd, onSub })
         ))}
       </div>
 
-      {/* Modal (после .map, внутри return) */}
+      {/* Modal */}
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
-            <Modal.Title>{showImge.desc}</Modal.Title>
+          <Modal.Title>{showImge.desc}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <img
-            src={showImge.image}
-            width="350"
-            alt={showImge.desc}
-            className="mx-5"
-            />
-            <p>
+          <img src={showImge.image} width="350" alt={showImge.desc} className="mx-5" />
+          <p className="mt-3">
             <span className="text-dark">Ratings:</span> {showImge.ratings}/5
-            </p>
+          </p>
         </Modal.Body>
-        </Modal>
-
+      </Modal>
     </>
   );
 }

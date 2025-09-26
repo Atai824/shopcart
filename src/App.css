@@ -368,3 +368,149 @@
   font-weight:500;
   user-select:none;                /* нельзя выделять текст */
 }
+/* Центрируем панель и ограничиваем ширину */
+.signin-wrapper {
+  max-width: 760px;
+  margin: 0 auto; /* если нужно левее — поменяй на: margin-left: 20px; */
+}
+
+/* Внешняя «панель» */
+.signin-panel {
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  background: #fff;
+}
+
+/* Серая шапка панели с заголовком */
+.signin-panel__header {
+  background: #f5f5f5;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 10px 14px;
+  font-weight: 600;
+}
+
+/* Тело панели */
+.signin-panel__body {
+  padding: 16px 18px;
+}
+
+/* Внутри — маленькая «карточка» формы слева */
+.signin-content {
+  display: flex;
+}
+
+.signin-card {
+  border: 1px solid #e6e6e6;
+  background: #fff;
+  padding: 12px;
+  width: 280px; /* сопоставимо с макетом */
+}
+
+/* Кнопка Facebook — синяя с иконкой */
+.btn-facebook {
+  background-color: #3b5998;
+  border-color: #3b5998;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.btn-facebook:hover {
+  background-color: #334b86;
+  border-color: #2f447a;
+}
+/* панель сортировки */
+.sortbar .sort-select {
+  max-width: 160px;
+}
+
+/* цена справа от названия маленьким красным, как на примере */
+.product-price {
+  color: #e74c3c; /* красный */
+  font-size: 0.9rem;
+}
+
+/* существующие элементы под количество выглядят уже ок */
+.qty-controls { display: flex; align-items: center; gap: 8px; }
+.qty-btn { background: #6c757d; color: #fff; padding: 6px 10px; }
+.qty-box { border: 1px solid #ddd; width: 38px; text-align: center; padding: 4px 0; border-radius: 4px; }
+.sortbar { margin-top: 8px; }
+.product-price { color: #e74c3c; font-size: 0.95rem; font-weight: 500; }
+.sort-select { max-width: 160px; }
+/* ---- Sort Price By: компактный селект "как текст" ---- */
+.sortbar { margin: 14px 0 8px; }
+.sortbar .small { font-size: .875rem; }      /* как у надписи "Sort Price By:" */
+.sort-select {
+  font-size: 0.8rem;                        /* такой же размер, как у лейбла */
+  height: 20px;                              /* низкая высота */
+  padding: 2px 6px;                          /* компактные отступы */
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background: #fff;
+  line-height: 1.2;
+}
+
+/* ---- Кнопки +/-: прямоугольные, ниже по высоте ---- */
+.qty-controls { display: flex; align-items: center; gap: 12px; }
+
+.qty-btn {
+  width: 44px;            /* ширину оставили фиксированной */
+  height: 36px;           /* уменьшили высоту => форма более прямоугольная */
+  padding: 0;
+  border: none;
+  background: #6c757d;    /* серый фон кнопки */
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Белый кружок внутри кнопки */
+.btn-glyph {
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Цвет знака + / - такой же, как фон кнопки */
+.qty-btn .btn-glyph svg {
+  color: #6c757d;
+  font-size: 12px;
+}
+
+/* ---- Quantity: слово сверху, бокс на одной линии с кнопками ---- */
+.qty-field {
+  display: flex;
+  flex-direction: column;     /* "Quantity" над боксом */
+  justify-content: center;    /* выравниваем по высоте относительно кнопок */
+  align-items: flex-start;
+  margin-left: 12px;
+}
+
+.qty-label {
+  color: #6c757d;
+  font-size: .9rem;
+  margin-bottom: 4px;         /* небольшой отступ от текста до бокса */
+}
+
+/* Бокс с количеством: светло-серый фон и более жирная рамка */
+.qty-box {
+  width: 42px;
+  height: 42px;                      /* пониже, чтобы совпасть с кнопками */
+  background: #f8f9fa;               /* светло-серый фон */
+  border: 2px solid #cfd4da;         /* более жирная линия */
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .95rem;
+}
+.box {
+  border-top: 1px solid #cfd4da; /* линия над первым продуктом */
+}
+.product-row {
+  border-bottom: 1px solid #cfd4da; /* линии между продуктами */
+}
