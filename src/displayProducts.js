@@ -75,7 +75,7 @@ export default function DisplayProducts({ products, onQtyChange, onAdd, onSub })
   const [show, setShow] = useState(false);
   const [showImge, setShowImge] = useState({});
 
-  // sort state
+ 
   // "normal" — как в слайде: дефолтная раскладка по id по возрастанию
   const [sortBy, setSortBy] = useState("normal");
 
@@ -101,22 +101,23 @@ export default function DisplayProducts({ products, onQtyChange, onAdd, onSub })
   return (
     <>
       {/* Панель сортировки как на макете */}
-      <div className="sortbar d-flex justify-content-center align-items-center mb-3">
+      
+
+      <div className="box">
+        <div className="box-header sortbar d-flex justify-content-center align-items-center mt-4">
         <span className="me-2 small text-muted">Sort Price By:</span>
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
           className="form-select form-select-sm sort-select"
           aria-label="Sort Price By"
-          style={{ width: 140 }}
+          style={{ width: 70 }}
         >
           <option value="normal">Normal</option>
           <option value="lowest">Lowest</option>
           <option value="highest">Highest</option>
         </select>
       </div>
-
-      <div className="box">
         {sortedProducts.map((p) => (
           <ProductRow
             key={p.id}

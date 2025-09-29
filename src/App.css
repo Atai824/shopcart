@@ -132,6 +132,7 @@
   background:#fff; 
   border:1px solid #e3e6e8; 
   border-top:none; 
+  
 }
 .product-row { 
   padding:22px 20px; 
@@ -269,7 +270,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 20px;
+  padding: 30px 20px;
   border-radius: 0;                /* без сглаживаний */
 }
 .topbar a { color: #fff !important; }
@@ -288,7 +289,6 @@
   background:#fff;               /* белый круг на бирюзовой шапке */
   color:#12d5f2;                 /* буква R бирюзовая */
   font-weight:700;
-  margin:0 6px 0 4px;
   line-height:1;
 }
 
@@ -322,22 +322,22 @@
   gap:12px; }
 
 .qty-controls { 
-  display:flex; 
-  align-items:center; 
-  gap:12px; }
+  display: flex; 
+  align-items: center; 
+  gap: 12px; }
 
 /* Кнопки +/- — квадратные серые */
 .qty-btn{
-  width:40px; 
-  height:40px; 
-  padding:0;
-  border:none; 
-  border-radius:6px;
-  background:#6c757d; 
-  color:#fff;
-  display:inline-flex; 
-  align-items:center; 
-  justify-content:center;
+  width: 40px; 
+  height: 40px; 
+  padding: 0;
+  border: none; 
+  border-radius: 6px;
+  background: #6c757d; 
+  color: #fff;
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center;
 }
 .qty-btn:hover{ 
   background:#5f6770; 
@@ -355,19 +355,6 @@
   font-size:14px; 
 }
 
-/* Квадратный "input"-бокс, но это div: */
-.qty-box{
-  width:40px; height:40px;
-  border:1px solid #d9dee2;
-  border-radius:0;                 /* без скруглений */
-  background:#fff;
-  display:flex; 
-  align-items:center; 
-  justify-content:center;
-  font-size:14px; 
-  font-weight:500;
-  user-select:none;                /* нельзя выделять текст */
-}
 /* Центрируем панель и ограничиваем ширину */
 .signin-wrapper {
   max-width: 760px;
@@ -441,24 +428,35 @@
 .sortbar .small { font-size: .875rem; }      /* как у надписи "Sort Price By:" */
 .sort-select {
   font-size: 0.8rem;                        /* такой же размер, как у лейбла */
-  height: 20px;                              /* низкая высота */
-  padding: 2px 6px;                          /* компактные отступы */
+  height: 19px;                              /* низкая высота */
+  padding: 0px 0px;                          /* компактные отступы */
   border: 1px solid #ced4da;
-  border-radius: 4px;
+  border-radius: 2px;
   background: #fff;
-  line-height: 1.2;
+  line-height: 18px;
+
+
 }
 
+.sort-select {
+  appearance: auto;   /* вернёт стандартную стрелку вниз */
+}
+
+
 /* ---- Кнопки +/-: прямоугольные, ниже по высоте ---- */
-.qty-controls { display: flex; align-items: center; gap: 12px; }
+.qty-controls { 
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+}
 
 .qty-btn {
-  width: 44px;            /* ширину оставили фиксированной */
-  height: 36px;           /* уменьшили высоту => форма более прямоугольная */
+  width: 36px;            /* ширину оставили фиксированной */
+  height: 30px;           /* уменьшили высоту => форма более прямоугольная */
   padding: 0;
   border: none;
   background: #6c757d;    /* серый фон кнопки */
-  border-radius: 8px;
+  border-radius: 4px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -466,8 +464,8 @@
 
 /* Белый кружок внутри кнопки */
 .btn-glyph {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   background: #fff;
   border-radius: 9999px;
   display: inline-flex;
@@ -498,11 +496,11 @@
 
 /* Бокс с количеством: светло-серый фон и более жирная рамка */
 .qty-box {
-  width: 42px;
-  height: 42px;                      /* пониже, чтобы совпасть с кнопками */
+  width: 36px;
+  height: 36px;                      /* пониже, чтобы совпасть с кнопками */
   background: #f8f9fa;               /* светло-серый фон */
   border: 2px solid #cfd4da;         /* более жирная линия */
-  border-radius: 6px;
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -511,6 +509,16 @@
 .box {
   border-top: 1px solid #cfd4da; /* линия над первым продуктом */
 }
-.product-row {
-  border-bottom: 1px solid #cfd4da; /* линии между продуктами */
+.box-header {
+  padding: 10px 12px 30px;
+  border-bottom: 1px solid #cfd4da;  
+  margin-bottom: 0;
 }
+.product-row {
+  padding: 18px 20px;
+  border-top: 0 !important;           
+  border-bottom: 1px solid #cfd4da;  
+}
+
+
+
